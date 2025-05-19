@@ -1,0 +1,6 @@
+<h2>Modération des Commentaires</h2>
+<div *ngFor="let comment of comments; let i = index">
+  <p>{{ comment.text }} - <strong>{{ comment.status }}</strong></p>
+  <button *ngIf="comment.status === 'pending'" (click)="approveComment(i)">Approuver</button>
+  <button *ngIf="comment.status === 'pending'" (click)="rejectComment(i)">Rejeter</button>
+</div>

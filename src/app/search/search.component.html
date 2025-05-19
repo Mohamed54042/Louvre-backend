@@ -1,0 +1,27 @@
+<div class="container">
+  <h2>Recherche d'Événements</h2>
+  <input type="text" [(ngModel)]="searchTerm" placeholder="Rechercher par titre ou description..." class="form-control mb-3" />
+  
+  <label>Filtrer par :</label>
+  <select [(ngModel)]="filterCategory" class="form-select mb-3">
+    <option value="">Toutes les catégories</option>
+    <option value="date">Date</option>
+    <option value="location">Lieu</option>
+    <option value="civilization">Civilisation</option>
+    <option value="theme">Thématique</option>
+  </select>
+  
+  <div *ngFor="let event of filteredEvents" class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title">{{ event.title }}</h5>
+      <p class="card-text">{{ event.description }}</p>
+      <p><strong>Date :</strong> {{ event.date }}</p>
+      <p><strong>Lieu :</strong> {{ event.location }}</p>
+    </div>
+  </div>
+  <nav *ngIf="totalPages > 1" class="mt-3">
+    <button (click)="previousPage()" [disabled]="currentPage === 1">Précédent</button>
+    <span>Page {{ currentPage }} / {{ totalPages }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Suivant</button>
+  </nav>
+</div>

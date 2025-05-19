@@ -1,0 +1,14 @@
+<div class="container">
+  <h2>Ligne du Temps</h2>
+  <button (click)="goToSearch()" class="btn btn-primary mb-3">Rechercher un Événement</button>
+  
+  <div *ngFor="let event of events" class="card mb-3">
+    <img *ngIf="event.image" [src]="event.image" alt="Image de l'événement" class="card-img-top" />
+    <div class="card-body">
+      <h5 class="card-title">{{ event.title }}</h5>
+      <p class="card-text">{{ event.description }}</p>
+      <p><strong>Date :</strong> {{ event.date }} | <strong>Lieu :</strong> {{ event.location }}</p>
+      <a [routerLink]="['/event', event.id]" class="btn btn-secondary mt-2">Voir les détails</a>
+    </div>
+  </div>
+</div>

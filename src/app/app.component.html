@@ -1,0 +1,17 @@
+<nav style="background: #333; color: #fff; padding: 1rem; display: flex; gap: 1rem;">
+  <a routerLink="/timeline" style="color: #fff;">Ligne du Temps</a>
+  <a routerLink="/search" style="color: #fff;">Recherche</a>
+  <a routerLink="/comments" style="color: #fff;">Commentaires</a>
+
+  <ng-container *ngIf="!isLoggedIn()">
+    <a routerLink="/login" style="color: #fff;">Connexion</a>
+    <a routerLink="/register" style="color: #fff;">Inscription</a>
+  </ng-container>
+
+  <ng-container *ngIf="isLoggedIn()">
+    <a *ngIf="isModerator()" routerLink="/moderation" style="color: #fff;">Modération</a>
+    <a (click)="logout()" style="color: #fff;">Déconnexion</a>
+  </ng-container>
+</nav>
+<router-outlet></router-outlet>
+<!-- <app-auth></app-auth> -->

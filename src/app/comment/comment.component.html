@@ -1,0 +1,13 @@
+<div class="container">
+    <h2>Commentaires</h2>
+    <div *ngFor="let comment of comments" class="card mb-2">
+      <div class="card-body">
+        <p>{{ comment.text }}</p>
+        <small class="text-muted">Posté par {{ comment.author }}</small>
+      </div>
+    </div>
+  
+    <textarea [(ngModel)]="newComment" placeholder="Ajouter un commentaire..." class="form-control mt-3"></textarea>
+    <button class="btn btn-primary mt-2" (click)="addComment()">Envoyer</button>
+  </div>
+  

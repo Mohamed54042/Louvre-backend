@@ -1,0 +1,10 @@
+<h2>Administration - Gestion des Images</h2>
+<input type="file" (change)="onImageSelected($event)" />
+<button (click)="uploadImage()" [disabled]="!imagePreview">Télécharger</button>
+<div *ngIf="imagePreview"><h4>Prévisualisation :</h4><img [src]="imagePreview" alt="Prévisualisation"></div>
+
+<h3>Images téléchargées</h3>
+<div *ngFor="let img of images; let i = index">
+  <img [src]="img" alt="Image téléchargée" style="max-width: 150px;">
+  <button (click)="deleteImage(i)">Supprimer</button>
+</div>

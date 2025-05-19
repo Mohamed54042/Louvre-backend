@@ -1,0 +1,13 @@
+<h2>Détail de l'Événement</h2>
+<div *ngIf="event">
+  <h3>{{ event.title }}</h3>
+  <p><strong>Description :</strong> {{ event.description }}</p>
+  <p><strong>Date :</strong> {{ event.date }}</p>
+  <p><strong>Lieu :</strong> {{ event.location }}</p>
+  <p><strong>Civilisation :</strong> {{ event.civilization }}</p>
+  <p><strong>Thème :</strong> {{ event.theme }}</p>
+  <button (click)="goBack()">Retour à la ligne du temps</button>
+</div>
+<div *ngIf="!event">
+  <p>Événement non trouvé.</p>
+</div>
